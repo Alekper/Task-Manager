@@ -5,7 +5,6 @@ import 'react-phone-number-input/style.css'
 import { validate } from 'react-email-validator';
 import './Responsive.css'
 import { useNavigate } from 'react-router-dom'
-import Home from '../Home Page/Home';
 
 
 
@@ -51,42 +50,27 @@ function Signup(props) {
     const [equalsZero, setEqZero] = useState()
     const [equalsTrue, setEqTrue] = useState()
 
-    function signUpHandler(e) {
+    const signUpHandler = (e) => {
         e.preventDefault()
 
-        inpName2.length === 0 ? setName2Err(true) : setName2Err(false)
-
-        inpSurname.length === 0 ? setSurnameErr(true) : setSurnameErr(false)
-
-        orgName.length === 0 ? setOrgNameErr(true) : setOrgNameErr(false)
-
-        orgAddress.length === 0 ? setOrgAddressErr(true) : setOrgAddressErr(false)
-
-        mail.length === 0 ? setMailErr(true) : setMailErr(false)
-        validate(mail) ? setMailErr(false) : setMailErr(true)
-
-
-        num === undefined ? setNumErr(true) : num.length === 0 ? setNumErr(true) : setNumErr(false)
-
-        password.length < 6 ? setPassword2Err(true) : setPassword2Err(false);
-
-        username.length < 4 ? setUsernameErr(true) : setUsernameErr(false)
-
-
+        setName2Err(inpName2.length === 0)
+        setSurnameErr(inpSurname.length === 0)
+        setOrgNameErr(orgName.length === 0)
+        setOrgAddressErr(orgAddress.length === 0)
+        setMailErr(mail.length === 0 || !validate(mail))
+        setNumErr(num === undefined || num.length === 0)
+        setPassword2Err(password.length < 6)
+        setUsernameErr(username.length < 4)
 
         const arr = Array.from(inputs)
 
-        let zer = arr.some(e => e.value.length === 0)
-        setEqZero(zer)
+        const equalsZero = arr.some(e => e.value.length === 0)
+
         const errors = [inpName2Err, inpSurnameErr, orgNameErr, orgAddressErr, numErr, mailErr, usernameErr, passwordErr]
-        let tr = errors.some(e => e === true)
-        setEqTrue(tr)
+        const equalsTrue = errors.some(e => e === true)
 
-
-
-
+        setInfo([equalsZero, equalsTrue])
         
-
         const userData = {
             name: inpName2,
             surname: inpSurname,
@@ -109,19 +93,15 @@ function Signup(props) {
         }).then((resp) => {
             resp.json().then((result) => {
                 console.log('result',result);
-                if ((equalsTrue === false) && (equalsZero === false)) {
+                if (!equalsTrue && !equalsZero) {
                     localStorage.clear()
                     localStorage.setItem('username', result.username)
                     localStorage.setItem('password', result.password)
                     localStorage.setItem('fullName', result.fullName)
-                    navigate('/home')
+                    navigate('/')
                 }
             })
         })
-        console.log(userData);
-
-
-
     }
 
     useEffect(() => {
@@ -153,7 +133,7 @@ function Signup(props) {
                 <div className="su-ns">
                     <div>
                         <label htmlFor="su-name">Name</label>
-                        <input type="text" name="name" id="su-name" onChange={(e) => {
+                        <input type="text" className='su-inp' name="name" id="su-name" onChange={(e) => {
                             setName2(e.target.value);
                             e.target.value.length === 0 ? setName2Err(true) : setName2Err(false)
 
@@ -165,7 +145,7 @@ function Signup(props) {
                     </div>
                     <div>
                         <label htmlFor="su-name">Surname</label>
-                        <input type="text" name="surname" id="su-surname" onChange={(e) => {
+                        <input type="text" className='su-inp' name="surname" id="su-surname" onChange={(e) => {
                             setSurname(e.target.value)
                             e.target.value.length === 0 ? setSurnameErr(true) : setSurnameErr(false)
 
@@ -177,7 +157,7 @@ function Signup(props) {
                 </div>
                 <div className="organization">
                     <label htmlFor="su-on">Organization name</label>
-                    <input type="text" name="o-name" id="su-on" autoComplete="off" onChange={(e) => {
+                    <input type="text" className='su-inp' name="o-name" id="su-on" autoComplete="off" onChange={(e) => {
                         setOrgName(e.target.value)
                         e.target.value.length === 0 ? setOrgNameErr(true) : setOrgNameErr(false)
                     }} />
@@ -186,7 +166,7 @@ function Signup(props) {
                     }
 
                     <label htmlFor="su-address">Address</label>
-                    <input type="text" name="address" id="su-address" onChange={(e) => {
+                    <input type="text" className='su-inp' name="address" id="su-address" onChange={(e) => {
                         setOrgAddress(e.target.value)
                         e.target.value.length === 0 ? setOrgAddressErr(true) : setOrgAddressErr(false)
                     }} />
@@ -199,7 +179,7 @@ function Signup(props) {
                     <div id='num'>
 
                         <label htmlFor="su-number">Phone number</label>
-                        <PhoneInput defaultCountry={'AZ'} value={num} name="number" id="su-number" onChange={setNum} onInput={func3}
+                        <PhoneInput defaultCountry={'AZ'} className='su-inp-ph' value={num} name="number" id="su-number" onChange={setNum} onInput={func3}
                         />
                         {
                             numErr ? <span >Please enter a valid telephone number</span> : null
@@ -209,7 +189,7 @@ function Signup(props) {
                     <div>
 
                         <label htmlFor="su-email">E-mail</label>
-                        <input type="email" required name="email" id="su-email" onChange={(e) => {
+                        <input type="email" required name="email" id="su-email" className='su-inp' onChange={(e) => {
                             setMail(e.target.value)
                             e.target.value.length === 0 ? setMailErr(true) : setMailErr(false)
                         }} />
@@ -221,7 +201,7 @@ function Signup(props) {
                     <div>
 
                         <label htmlFor="su-password">Password</label>
-                        <input type="password" name="password" id="su-password" onChange={(e) => {
+                        <input type="password" name="password" id="su-password" className='su-inp' onChange={(e) => {
                             setPassword2(e.target.value)
                             e.target.value.length < 6 ? setPassword2Err(true) : setPassword2Err(false);
 
@@ -233,7 +213,7 @@ function Signup(props) {
                     </div>
                     <div>
                         <label htmlFor="su-username">Username</label>
-                        <input type="text" name="username" id="su-username" onChange={(e) => {
+                        <input type="text" name="username" className='su-inp' id="su-username" onChange={(e) => {
                             setUsername(e.target.value)
                             e.target.value.length < 4 ? setUsernameErr(true) : setUsernameErr(false)
 

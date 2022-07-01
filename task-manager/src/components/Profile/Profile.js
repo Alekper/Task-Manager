@@ -14,13 +14,7 @@ function Profile() {
         setFullName(localStorage.getItem('fullName'))
     
        }, [])
-    //    useEffect(() => {
-    //     fetch("https://localhost:44330/api/customer-list").then((result) => {
-    //         result.json().then((resp) => {
-               
-    //         })
-    //     })
-    // }, [])
+    
 
     const signOut = () =>{
         localStorage.clear()

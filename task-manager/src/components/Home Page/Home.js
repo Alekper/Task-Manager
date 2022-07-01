@@ -1,5 +1,5 @@
 import './Home.css'
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState, useMemo} from "react";
 import CalendarApp from '../Widgets/Calendar';
 import ClockApp from '../Widgets/Clock'
 import Card from './Card';
@@ -10,22 +10,23 @@ const generateID = () => `${Math.random() * 1000}`
 
 function Home() {
     const [cards, updateCards] = useState([])
-    const [fullName, setFullName] = useState('Name Surname')
     const navigate = useNavigate()
 
-   useEffect(()=>{
-    setFullName(localStorage.getItem('fullName'))
-   }, [])
-
+   const fullName = useMemo(()=> localStorage.getItem('fullName'), [])
    
+    useEffect(() => {
+        if (!fullName)
+            navigate('/signin')
+    }, [fullName, navigate])
+
+    if (!fullName)
+        return null
 
     const delFunc = (id) => {
         setTimeout(() => {
             updateCards(cards.filter(item => item.id !== id))
         }, 300);
-
     }
-
 
 
     const addCard = () => {
@@ -41,6 +42,7 @@ function Home() {
             </div>
         </div>
     )
+
     return (
         <div id="home-main">
             <div className="container">

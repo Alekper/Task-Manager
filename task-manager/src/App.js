@@ -1,53 +1,35 @@
-import React from 'react';
-import {Routes, Route} from 'react-router-dom'
+import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import Signin from './components/Sign in/Signin';
 import Home from './components/Home Page/Home';
 import Profile from './components/Profile/Profile'
 
+function AuthorizedPage({render}) {
+  const navigate = useNavigate()
+  const isAuthorized = !!localStorage.getItem('username')
 
+  useEffect(() => {
+    if (!isAuthorized)
+      navigate('/signin')
+  }, [isAuthorized, navigate])
+
+  if (!isAuthorized)
+    return null
+
+  return render()
+}
 
 function App() {
+  const isAuthorized = !!localStorage.getItem('username')
+  const renderProfile = useCallback(() => (<Profile />), [])
 
-
-console.log('aa');
   return (
     <div className="App">
       <Routes>
-        {/* {
-          localStorage.getItem('username') !== null && localStorage.getItem('password') !== null ? 
-          <Route path='/home' element={<Home/>} /> : 
-          <Route path='/home' element={<Signin/>} />
-        }
-        {
-          localStorage.getItem('username') !== null && localStorage.getItem('password') !== null ? 
-          <Route path='/profile' element={<Profile/>} /> : 
-          <Route path='/profile' element={<Signin/>} /> 
-          
-        }
-        {
-          localStorage.getItem('username') !== null && localStorage.getItem('password') !== null ? 
-          <Route path='/' element={<Home/>} /> : 
-          <Route path='/' element={<Signin/>} />
-          
-        } */}
-{
-          localStorage.length === 0 ? 
-          <Route path='/home' element={<Signin/>} /> :
-          <Route path='/home' element={<Home/>} /> 
-
-}        
-{
-          localStorage.length === 0 ? 
-          <Route path='/profile' element={<Signin/>} /> :
-          <Route path='/profile' element={<Profile/>} />  
-
-}        
-{/* {
-          localStorage.length === 0 ? 
-          <Route path='/' element={<Signin/>} /> :
-          
-}         */}
-          <Route path='/' element={<Signin/>} /> 
+        <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/profile" element={<AuthorizedPage render={renderProfile} />} />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </div>
   );

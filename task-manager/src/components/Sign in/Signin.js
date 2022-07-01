@@ -8,19 +8,18 @@ function Signin() {
 
     const
         layerContent1 = 'Welcome, new user!',
-        layerContent2 = 'Welcome back!',
+        [layerContent2, setLayerContent2] = useState('Welcome back!'),
         [layerBehavior, setLayerBehavior] = useState(false);
 
     const
         [inpName, setName] = useState(''),
-        [nameErr, setNameErr] = useState(false),
-        [fullNameInfo, setFullNameInfo] = useState('')
+        [nameErr, setNameErr] = useState(false);
+        // [fullNameInfo, setFullNameInfo] = useState('')
     const
         [inpPassword, setPassword] = useState(''),
         [passwordErr, setPasswordErr] = useState(false);
-    // const 
-    // [incorrectLogin, setIncorrectLogin] = useState(true)
-    // [incorrectLogin, setIncorrectLogin] = useState(true)
+    const
+        [incorrectLogin, setIncorrectLogin] = useState(false)
 
     const navigate = useNavigate()
     const [layerHeight, setLayerHeight] = useState()
@@ -28,13 +27,19 @@ function Signin() {
     const [userData, setUserData] = useState([])
 
     useEffect(() => {
-        fetch("https://localhost:44330/api/customer-list").then((result) => {
-            result.json().then((resp) => {
-                setUserData(resp)
-                console.log(resp);
-                
+        fetch("https://localhost:44330/api/customer-list")
+            .then((result) => {
+                result.json().then((resp) => {
+                    setUserData(resp)
+                    console.log(resp);
+
+                })
+
             })
-        })
+            .catch(error => {
+                // alert('Can\'t connect to the server: ' + error.message)
+                console.log(error.message);
+            })
     }, [])
 
 
@@ -47,6 +52,7 @@ function Signin() {
     function handleLayerBehavior(e) {
 
         setLayerBehavior(!layerBehavior)
+        setIncorrectLogin(false)
 
     }
 
@@ -72,9 +78,25 @@ function Signin() {
                 localStorage.setItem('fullName', userData[i].fullName)
                 navigate('/home')
 
+            } else {
+                setLayerContent2('Incorrect username or password!')
+                setIncorrectLogin(true)
+                
+                console.log(incorrectLogin);
             }
 
         }
+    }
+
+    let style = {
+        height: layerHeight && !layerHeight2 ? '700px' : '100%',
+        background: incorrectLogin ? "red" : "#23d5a0",
+
+    }
+
+    let layerErrorStyle = {
+        writingMode: incorrectLogin ?  'horizontal-tb' : 'vertical-rl',
+        alignSelf: 'center'
     }
 
 
@@ -83,9 +105,9 @@ function Signin() {
         <div id="home-page-container">
             <div className="user-container">
                 <div className="form-container">
-                    <div className={`${layerBehavior ? "sign-in" : "sign-in none"}`}>
-                        <div id='layer' style={{ height: layerHeight && !layerHeight2 ? '700px' : '100%' }} className={`${layerBehavior ? "layer2 layer-animation2" : "layer1 layer-animation"}`}>
-                            <h1 className={`${layerBehavior ? "text2" : "text"}`}>{!layerBehavior ? layerContent1 : layerContent2}</h1>
+                    <div className={`${layerBehavior ? "sign-in none" : "sign-in"}`}>
+                        <div id='layer' style={style} className={`${layerBehavior ? "layer2 layer-animation2" : "layer1 layer-animation"}`}>
+                            <h1 className={`${layerBehavior ? "text2" : "text"}`} style={layerErrorStyle}>{!layerBehavior ? layerContent1 : layerContent2}</h1>
                         </div>
                         <h1>Sign in</h1>
 
