@@ -1,0 +1,100 @@
+label {
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px !important;
+}
+
+input {
+    margin-top: 2px;
+    width: 200px;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.281);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: #fff;
+    /* -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.281) inset; */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+span {
+    color: red;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 30px;
+    color: #fff;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+.form-container {
+    display: flex;
+   
+}
+
+.sign-up {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.su-ns {
+    width: 420px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#su-name{
+    margin-right: 10px;
+}
+
+.organization {
+    display: flex;
+    flex-direction: column;
+}
+
+.organization input {
+    width: 430px;
+}
+
+.grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    row-gap: 20px;
+    column-gap: 10px;
+
+}
+
+
+
+
+
+#create:hover {
+    text-decoration: underline;
+
+}
+
+#su-number{
+    width: 150px;
+}
+
+#su-on, #su-name, #su-surname, #su-address{
+    text-transform: capitalize;
+}
+

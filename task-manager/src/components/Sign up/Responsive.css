@@ -1,0 +1,114 @@
+@media screen and (max-width: 768px) {
+
+  
+    .su-ns {
+        justify-content: space-between;
+        width: 360px !important;
+    }
+
+    .su-ns div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sign-up{
+        overflow: auto;
+        margin-top: 400px;
+        padding-bottom: 50px;
+    }
+
+
+
+
+    .organization {
+        justify-content: center;
+    }
+
+    .grid {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        row-gap: 0px;
+        column-gap: 0px;
+
+    }
+
+    .grid div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #sign-up {
+        max-width: 360px;
+        /* margin: 0 auto; */
+    }
+
+
+
+
+    .PhoneInput {
+        width: 371px !important;
+        display: flex;
+        flex-direction: row !important;
+        /* position: absolute; */
+    }
+
+    .PhoneInputCountrySelect {
+        padding: 0;
+        height: 5px;
+    }
+
+    .PhoneInputCountry {
+        margin: 15px 5px 0 1px;
+    }
+
+    label {
+        margin-top: 10px !important;
+    }
+
+}
+
+@media screen and (max-width: 429px) {
+    .su-ns div input {
+
+        width: 120px !important;
+
+    }
+
+    input {
+        width: 270px !important;
+    }
+
+    .su-ns {
+        justify-content: space-between;
+        width: 280px !important;
+    }
+
+    .PhoneInput {
+        width: 290px !important;
+
+    }
+
+    
+    #sign-up, .sign-up{
+        max-width: 290px;
+    }
+
+  
+}
+
+@media screen and (min-width: 430px) and (max-width: 768px) {
+    .su-ns div input {
+
+        width: 160px !important;
+
+    }
+
+    input {
+        width: 350px !important;
+    }
+
+
+
+
+}
