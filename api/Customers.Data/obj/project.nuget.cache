@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Hyh60SnxBYyPkzTjyVHTXeukEyBdgEAXiUwjxUCG98KTvIvSRDXvluXSw7PUGHcqo0ZRc8S8X4Gk/xf2RktKeA==",
+  "dgSpecHash": "VZen4zkWbxXcqoebu+C/Q9hJwjKizAow19flenji3OmvkBdWFo3nOa74b5YcVNMYKrm2F+qMXe/kAKNcSdA3JA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alekper\\MyDocs\\WEB\\UNISER\\api\\Customers.Data\\Customers.Data.csproj",
+  "projectFilePath": "C:\\Users\\Alekper\\task-manager\\api\\Customers.Data\\Customers.Data.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

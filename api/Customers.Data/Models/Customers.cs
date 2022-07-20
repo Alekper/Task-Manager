@@ -15,6 +15,7 @@ namespace Customers.Data.Models
         public string phoneNumber { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
+        public string username { get; set; }
         public int Id { get; set; }
 
         //public int Amount { get; set; }

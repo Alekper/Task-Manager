@@ -1,5 +1,6 @@
 import './Home.css'
-import React, { useEffect, useState, useMemo} from "react";
+import './responsive.css'
+import React, { useEffect, useState, useMemo } from "react";
 import CalendarApp from '../Widgets/Calendar';
 import ClockApp from '../Widgets/Clock'
 import Card from './Card';
@@ -12,8 +13,8 @@ function Home() {
     const [cards, updateCards] = useState([])
     const navigate = useNavigate()
 
-   const fullName = useMemo(()=> localStorage.getItem('fullName'), [])
-   
+    const fullName = useMemo(() => localStorage.getItem('fullName'), [])
+
     useEffect(() => {
         if (!fullName)
             navigate('/signin')
@@ -50,9 +51,14 @@ function Home() {
                     <img className='pp' src={ProfilePicture} alt="Profile" />
                     <button id='full-name' onClick={() => navigate('/profile')}>{fullName}</button>
                     <p id='number-of-tasks'>Number of tasks: {cards.length}</p>
+                    <div className="add-task-nav">
+                        <button onClick={addCard}>Add new task</button>
+                        <button onClick={() => updateCards([])}>Delete all tasks</button>
+                    </div>
+                    <div className="hover-layer"></div>
                 </div>
                 <div className="body">
-                    <div>{cards.map(renderCard)}</div>
+                    <div className='card-holder'>{cards.map(renderCard)}</div>
                 </div>
                 <div className="widgets">
                     <div id="clock">

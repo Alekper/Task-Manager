@@ -1,0 +1,306 @@
+@media screen and (min-width: 280px) and (max-width: 883px) {
+
+    .widgets {
+        display: none;
+    }
+
+    .card-holder{
+        background-color: rgb(34, 43, 56);
+
+    }
+
+
+
+    .add-task {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #number-of-tasks {
+        display: none;
+    }
+
+    .container {
+
+        flex-direction: column;
+        min-height: 100vh !important;
+        height: 100% !important;
+    }
+
+    #home-main {
+        height: 100% !important;
+        max-height: 100%;
+        min-height: 100vh !important;
+        background-color: rgb(34, 43, 56);
+        overflow: auto;
+
+
+    }
+
+    .nav {
+        height: 100px !important;
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0 0 20px 20px;
+        transition: 1s;
+        margin-bottom: 50px;
+        z-index: 999;
+
+    }
+
+    .add-task-nav {
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding-bottom: 30px;
+
+    }
+
+    .add-task-nav button {
+        width: 100%;
+        background: rgb(0, 96, 231) !important;
+        border: none;
+        height: 40px;
+        color: white;
+        margin-top: 20px;
+    }
+
+    .set-title{
+        width: 80% !important;
+    }
+
+    .del-btn{
+        bottom: 5%;
+        right: 10%;
+    }
+
+    #full-name {
+        font-size: 1.5rem;
+        left: 5%;
+        transform: translateX(0);
+        top: 30% !important;
+        width: 200px;
+    }
+
+    .pp {
+        left: 70%;
+        transform: translateX(0);
+        top: 50%;
+        transform: translateY(-75%);
+    }
+
+    .nav:hover  {
+        height: 350px !important;
+        margin-top: 0;
+        border-radius: 0 0 20px 20px;
+        transition: 0.5s;
+
+    }
+
+    .nav:hover .add-task-nav,
+    .nav:active .add-task-nav {
+        display: flex;
+    }
+
+    .nav:hover #full-name,
+    .nav:active #full-name {
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2rem;
+
+    }
+
+    .nav:hover .pp,
+    .nav:active .pp {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+    }
+
+    .body {
+        position: absolute;
+        top: 15%;
+        width: 100%;
+        overflow-y: visible;
+        max-height: 100%;
+
+    }
+
+    .card {
+        /* width: 280px !important; */
+        width: 80% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 400px;
+
+        transform: translateX(0);
+
+    }
+
+    .card div {
+        width: 100% !important;
+    }
+
+    .title-div,
+    .date-div,
+    .area-div {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title-inp,
+    .title {
+        width: 100% !important;
+        overflow-wrap: break-word;
+        color: black !important;
+        -webkit-text-fill-color: black;
+        
+    }
+
+    .title{
+        margin: 0;
+    }
+
+    .area {
+        width: 100% !important;
+    }
+
+    .date {
+        width: 100% !important;
+    }
+
+    .status-inp {
+        width: 40px !important;
+        margin: 20px 0 20px 0;
+    }
+}
+
+@media screen and (min-width: 884px) and (max-width: 1200px) {
+    .hover-layer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 995;
+        display: none;
+    }
+    .nav {
+        height: 100px !important;
+        width: 100% !important;
+        margin-top: 0;
+        border-radius: 0 0 20px 20px;
+        transition: 1s;
+        margin-bottom: 50px;
+        z-index: 999;
+        position: absolute;
+
+    }
+
+    .add-task-nav {
+        /* display: flex; */
+        flex-direction: column;
+        position: absolute;
+        width: 300px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+
+    }
+
+    .add-task-nav button {
+        width: 100%;
+        background: rgb(0, 96, 231) !important;
+        border: none;
+        height: 40px;
+        color: white;
+        margin-top: 5px;
+    }
+
+   
+
+    #full-name {
+        font-size: 1.5rem;
+        left: 5%;
+        transform: translateX(0);
+        top: 30% !important;
+        width: 200px;
+        z-index: 998;
+    }
+
+    .pp {
+        left: 70%;
+        transform: translateX(0);
+        top: 50%;
+        transform: translateY(-75%);
+    }
+
+    .nav:hover  {
+        height: 350px !important;
+        margin-top: 0;
+        border-radius: 0 0 20px 20px;
+        transition: 0.5s;
+
+    }
+    
+
+    .nav:hover .add-task-nav,
+    .nav:active .add-task-nav {
+        display: flex;
+    }
+
+    .nav:hover .add-task-nav,
+    .nav:active .add-task-nav {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav:hover .add-task-nav button,
+    .nav:active .add-task-nav button {
+        width: 300px;
+    }
+
+    .nav:hover #number-of-tasks,
+    .nav:active #number-of-tasks {
+        display: block;
+    }
+
+
+    .nav:hover #full-name,
+    .nav:active #full-name {
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2rem;
+
+    }
+
+    .nav:hover .pp,
+    .nav:active .pp {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+    }
+
+    .body {
+        margin: 150px 0 0 20px !important;
+
+    }
+
+    .widgets {
+        margin: 130px 20px 0 0 !important;
+    }
+
+    .pp {
+        right: 0;
+        left: 90%;
+    }
+
+  
+
+
+}

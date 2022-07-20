@@ -22,10 +22,10 @@ namespace Customers.Data.Repositories
                     //new Customer {Id=4, FullName = "Marilyn Manson", Amount = 420, CardNumber="8765432112345678", CVV=876, Date="31/12"},
                     //new Customer {Id=5, FullName = "David  Gilmour", Amount = 420, CardNumber="1234567812345678", CVV=980, Date="28/02"},
 
-                new Customer {Id=1, FullName="Oliver Sykes", name="Oliver", surname="Sykes", organizationName = "Bring Me The Horizon", organizationAddress = "UK", phoneNumber = "00000000",  Password = "olly911", Mail = "oliver@gmail.com"},
-                new Customer {Id=2, FullName="Chester Bennington", name="Chester", surname="Bennington", organizationName = "Linkin Park", organizationAddress = "USA", phoneNumber = "1111111", Password = "chester069", Mail = "chester@gmail.com"},
-                new Customer {Id=3, FullName="Kurt Cobain", name="Kurt", surname="Cobain", organizationName = "Nirvana", organizationAddress = "USA", phoneNumber = "2222222", Password = "kurt420", Mail = "kurt@gmail.com"},
-                new Customer {Id=4, FullName="Test", name="Test", surname="Test", organizationName = "Test", organizationAddress = "Test", phoneNumber = "3333333",  Password = "test123", Mail = "test@test.com"}
+                new Customer {Id=1, FullName="Oliver Sykes", name="Oliver", surname="Sykes", organizationName = "Bring Me The Horizon", organizationAddress = "UK", phoneNumber = "00000000",  Password = "olly911", Mail = "oliver@gmail.com", username="olly"},
+                new Customer {Id=2, FullName="Chester Bennington", name="Chester", surname="Bennington", organizationName = "Linkin Park", organizationAddress = "USA", phoneNumber = "1111111", Password = "chester069", Mail = "chester@gmail.com", username="chester"},
+                new Customer {Id=3, FullName="Kurt Cobain", name="Kurt", surname="Cobain", organizationName = "Nirvana", organizationAddress = "USA", phoneNumber = "2222222", Password = "kurt420", Mail = "kurt@gmail.com", username="kurt"},
+                new Customer {Id=4, FullName="Test", name="Test", surname="Test", organizationName = "Test", organizationAddress = "Test", phoneNumber = "3333333",  Password = "test123", Mail = "test@test.com", username="test"}
 
             };
         }

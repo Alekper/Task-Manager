@@ -45,7 +45,9 @@
         transform: translateY(-50%);
     }
 
-
+    .resp-hide{
+        display: block !important; 
+    }
 
 }
 
@@ -53,6 +55,9 @@
 @media screen and (min-width: 480px) and (max-width: 768px) {
 
 
+    .resp-hide{
+        display: block !important;
+    }
     .su-ns div input {
 
         width: 160px !important;
@@ -130,17 +135,17 @@
     }
 
     .sign-in input,
-    .sign-up div input
-    {
+    .sign-up div input {
         width: 220px !important;
     }
-    .su-inp-ph{
-width: 234px !important;
+
+    .su-inp-ph {
+        width: 240px !important;
     }
 
     .su-ns {
         flex-direction: column;
     }
 
-    
+
 }

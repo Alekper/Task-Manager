@@ -52,6 +52,7 @@ function Signup(props) {
 
     const signUpHandler = (e) => {
         e.preventDefault()
+        const generateID = `${Math.random() * 1000}`
 
         setName2Err(inpName2.length === 0)
         setSurnameErr(inpSurname.length === 0)
@@ -80,7 +81,7 @@ function Signup(props) {
             phoneNumber: num,
             mail: mail,
             username: username,
-            password: password
+            password: password,
         }
 
         fetch("https://localhost:44330/api/customer-list", {
@@ -92,12 +93,12 @@ function Signup(props) {
             body: JSON.stringify(userData)
         }).then((resp) => {
             resp.json().then((result) => {
-                console.log('result',result);
                 if (!equalsTrue && !equalsZero) {
                     localStorage.clear()
                     localStorage.setItem('username', result.username)
                     localStorage.setItem('password', result.password)
                     localStorage.setItem('fullName', result.fullName)
+                    localStorage.setItem('data', JSON.stringify(userData))
                     navigate('/')
                 }
             })
@@ -121,7 +122,6 @@ function Signup(props) {
     function func3(e) {
         num === undefined ? setNumErr(true) : num.length - 1 === 0 ? setNumErr(true) : setNumErr(false)
 
-        console.log(num);
     }
 
 

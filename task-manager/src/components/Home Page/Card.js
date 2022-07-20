@@ -21,18 +21,18 @@ function Card(props) {
         <div className="card" >
             {
                 title.length === 0 || title === undefined ?
-                    <div>
+                    <div className="title-div">
                         <input type='text' onChange={(e) => titleFunc(e)} className='title-inp' placeholder='Set task title...' />
                         <button className="set-title" onClick={() => setTitle(titlePrev)} >Set</button>
                     </div>
                     :
-                    <div>
+                    <div className="title-div">
                         <h1 id="card-title" className={status? 'title line-through': 'title'}>{title}</h1>
                         <button className="set-title" onClick={() => setTitle('')} >Reset</button>
                     </div>
 
             }
-            <div>
+            <div className="date-div">
                 <div className="deadline" >
                     <small>Deadline</small>
                     <input type="date" className="date" />
@@ -46,14 +46,14 @@ function Card(props) {
             <small>Description</small>
             {
                 description.length === 0 || description === undefined ?
-                    <div>
+                    <div className="area-div">
 
                         <textarea className="area" name="description" onChange={(e) => desFunc(e)} placeholder='Set task title...'></textarea>
 
                         <button className="set-title" onClick={() => setDesciption(desPrev)} >Set</button>
                     </div>
                     :
-                    <div>
+                    <div className="area-div">
                         <p className={status? 'descrip line-through': 'descrip'}>{description}</p>
                         <button className="set-title" onClick={() => setDesciption('')} >Reset</button>
 

@@ -14,7 +14,6 @@ function Signin() {
     const
         [inpName, setName] = useState(''),
         [nameErr, setNameErr] = useState(false);
-        // [fullNameInfo, setFullNameInfo] = useState('')
     const
         [inpPassword, setPassword] = useState(''),
         [passwordErr, setPasswordErr] = useState(false);
@@ -25,6 +24,7 @@ function Signin() {
     const [layerHeight, setLayerHeight] = useState()
     const [layerHeight2, setLayerHeight2] = useState()
     const [userData, setUserData] = useState([])
+
 
     useEffect(() => {
         fetch("https://localhost:44330/api/customer-list")
@@ -43,13 +43,14 @@ function Signin() {
     }, [])
 
 
-    function layerStyle(data) {
+
+    const layerStyle = (data) => {
         setLayerHeight(data[0])
         setLayerHeight2(data[1])
 
     }
 
-    function handleLayerBehavior(e) {
+    const handleLayerBehavior = (e) => {
 
         setLayerBehavior(!layerBehavior)
         setIncorrectLogin(false)
@@ -60,31 +61,33 @@ function Signin() {
 
 
 
-    function formHandler(e) {
-        let obj = {
-            username: inpName,
-            password: inpPassword
-        }
+    const formHandler = (e) => {
+
         e.preventDefault()
-        console.log(obj);
         inpName.length === 0 ? setNameErr(true) : setNameErr(false);
         inpPassword.length === 0 ? setPasswordErr(true) : setPasswordErr(false);
 
 
         for (let i = 0; i < userData.length; i++) {
-            if (inpName === userData[i].mail && inpPassword === userData[i].password) {
+            if (inpName === userData[i].username && inpPassword === userData[i].password) {
                 localStorage.setItem('username', inpName)
                 localStorage.setItem('password', inpPassword)
                 localStorage.setItem('fullName', userData[i].fullName)
+                localStorage.setItem('id', (userData[i].id - 1))
                 navigate('/home')
 
             } else {
                 setLayerContent2('Incorrect username or password!')
                 setIncorrectLogin(true)
-                
-                console.log(incorrectLogin);
+
             }
 
+        }
+    }
+
+    const keyHandler = (e) => {
+        if (e.key === 'Enter') {
+            formHandler(e)
         }
     }
 
@@ -95,7 +98,7 @@ function Signin() {
     }
 
     let layerErrorStyle = {
-        writingMode: incorrectLogin ?  'horizontal-tb' : 'vertical-rl',
+        writingMode: incorrectLogin ? 'horizontal-tb' : 'vertical-rl',
         alignSelf: 'center'
     }
 
@@ -112,7 +115,7 @@ function Signin() {
                         <h1>Sign in</h1>
 
                         <label htmlFor="si-username">Username</label>
-                        <input type="text" name="username" id="si-username" onInput={(e) => {
+                        <input type="text" name="username" id="si-username" onKeyPress={keyHandler} onInput={(e) => {
                             setName(e.target.value);
                             e.target.value.length < 4 ? setNameErr(true) : setNameErr(false);
 
@@ -122,7 +125,7 @@ function Signin() {
 
                         }
                         <label htmlFor="si-password">Password</label>
-                        <input type="password" name="password" id="si-password" onInput={(e) => {
+                        <input type="password" name="password" id="si-password" onKeyPress={keyHandler} onInput={(e) => {
                             setPassword(e.target.value)
                             e.target.value.length < 6 ? setPasswordErr(true) : setPasswordErr(false);
 
@@ -135,10 +138,14 @@ function Signin() {
                         <button id='si-submit' type='submit' onClick={formHandler} >Submit</button>
 
                         <button id="create" onClick={handleLayerBehavior} >Create new account!</button>
+                        <div id="resp-error" style={{ opacity: incorrectLogin ? "1" : "0" }} className="resp-hide">
+                            <h1>Incorrect Login or Password</h1>
+                        </div>
                     </div>
                     <div id="sign-up" className={`${!layerBehavior ? "none" : ""}`}>
                         <Signup layer={handleLayerBehavior} style={layerStyle} />
                     </div>
+
                 </div>
 
             </div>

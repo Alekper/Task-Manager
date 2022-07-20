@@ -7,6 +7,7 @@
     background-color: rgb(34, 43, 56);
     min-height: 100vh;
     height: 100%;
+    overflow: auto;
 
 }
 
@@ -31,7 +32,7 @@
     display: flex;
     width: 650px;
     padding: 20px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     left: 5%;
     bottom: 0;
@@ -47,8 +48,10 @@
     border-radius: 50px 50px 0 0;
     background-color: rgba(0, 3, 83, 0.7);
     max-width: 99vw;
+    /* padding-bottom: 40px; */
     margin: 0 auto;
     min-height: 57vh;
+    /* overflow: auto; */
     height: 100%;
     margin-top: 3vh;
     position: relative;
@@ -85,4 +88,36 @@
     right: 2%;
     bottom: 5%;
     width: 350px;
+    margin-top: 20px;
+}
+
+#profile-info{
+    margin-top: 20px;
+    width: 55%;
+}
+
+#profile-info h1{
+    width: 80%;
+    background: linear-gradient(-45deg, #ee52ba, #5920c5, #fd2ada, #23d5a0);
+    /* height: 40px; */
+    animation: background-animation 15s ease infinite;
+    background-size: 400% 400%;
+    margin: 10px 0;
+    border-radius: 30px;
+    text-align: left;
+    padding: 0;
+    text-transform: none !important;
+    padding: 15px 0;
+    display: flex;
+    /* justify-content: space-between; */
+    padding-left: 30px;
+
+
+}
+
+.icon{
+    text-align: left;
+    padding-right: 50px;
+    /* margin-top: 5px; */
+    align-self: center;
 }

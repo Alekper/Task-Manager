@@ -1,0 +1,65 @@
+@media screen and (max-width: 940px) {
+    #profile-clock {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 280px) and (max-width: 850px) {
+
+    #profile-clock,
+    #profile-calendar {
+        display: none;
+    }
+
+    #name-container {
+        flex-direction: column;
+        width: 280px;
+        padding: 0;
+        /* word-wrap: break-word; */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .full-name {
+
+        font-size: 2rem;
+        margin: 30px 0;
+    }
+
+    #section-1 {
+        height: 350px;
+    }
+    #section-2 {
+        height: 500px !important;
+    }
+
+    #profile-info h1 {
+        width: 98%;
+        max-width: 98%;
+        overflow:auto;
+        max-height: 100px;
+        margin-left: -10px;
+    }
+
+    .icon {
+        padding-right: 10px;
+    }
+
+    #profile-info {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .personal {
+        width: 100%;
+    }
+
+    #sign-out {
+        bottom: 3%;
+        width: 270px;
+        right: 50%;
+        transform: translateX(50%);
+
+    }
+}

@@ -34,3 +34,15 @@ C:\Users\Alekper\MyDocs\WEB\UNISER\api\Customers.Data\obj\Debug\net5.0\Customers
 C:\Users\Alekper\MyDocs\WEB\UNISER\api\Customers.Data\obj\Debug\net5.0\Customers.Data.dll
 C:\Users\Alekper\MyDocs\WEB\UNISER\api\Customers.Data\obj\Debug\net5.0\ref\Customers.Data.dll
 C:\Users\Alekper\MyDocs\WEB\UNISER\api\Customers.Data\obj\Debug\net5.0\Customers.Data.pdb
+C:\Users\Alekper\task-manager\api\Customers.Data\bin\Debug\net5.0\Customers.Data.deps.json
+C:\Users\Alekper\task-manager\api\Customers.Data\bin\Debug\net5.0\Customers.Data.dll
+C:\Users\Alekper\task-manager\api\Customers.Data\bin\Debug\net5.0\ref\Customers.Data.dll
+C:\Users\Alekper\task-manager\api\Customers.Data\bin\Debug\net5.0\Customers.Data.pdb
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\Customers.Data.csproj.AssemblyReference.cache
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\Customers.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\Customers.Data.AssemblyInfoInputs.cache
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\Customers.Data.AssemblyInfo.cs
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\Customers.Data.csproj.CoreCompileInputs.cache
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\Customers.Data.dll
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\ref\Customers.Data.dll
+C:\Users\Alekper\task-manager\api\Customers.Data\obj\Debug\net5.0\Customers.Data.pdb

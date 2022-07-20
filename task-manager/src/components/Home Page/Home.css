@@ -1,5 +1,7 @@
 /* Calendar start */
-
+html{
+    scroll-behavior: smooth;
+}
 .react-calendar {
     background: #152135 !important;
     background-size: 300% 300% !important;
@@ -233,7 +235,9 @@ small {
 
 
 .date {
-    color: black;
+    color: black !important;
+    -webkit-text-fill-color: black;
+    
     width: 100px;
     margin-left: -10px;
 }
@@ -334,9 +338,14 @@ button{
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
+    z-index: 999;
 
 }
 
 .hidden{
+    display: none;
+}
+
+.add-task-nav{
     display: none;
 }
